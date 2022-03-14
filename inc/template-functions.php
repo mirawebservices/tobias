@@ -239,7 +239,7 @@ function tobias_title() {
 
 	if ( is_front_page() && is_home() ) {
 
-		echo '<h1 class="display-4 mt-0">'. get_bloginfo('name') .' - '. get_bloginfo('description') .'</h1>';
+		echo '<h1 class="display-4 mt-0">'. get_bloginfo('name') .'</h1>';
 
 	} elseif( is_home() ) {
 
