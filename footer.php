@@ -47,10 +47,21 @@
 					&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?>. All rights reserved.
 
 					<div class=" mt-3 mt-md-0">
-						<ul class="list-inline mb-0">
-							<li class="list-inline-item"><a class="nav-link" href="/terms/">Terms</a></li>
-							<li class="list-inline-item"><a class="nav-link pe-0" href="/privacy/">Privacy</a></li>
-						</ul>
+
+						<?php
+							wp_nav_menu(
+								array(
+									'theme_location' => 'menu-3',
+									'container'      => '',
+									'menu_id'        => 'policies',
+									'menu_class' 	 => 'list-inline mb-0',
+									'li_class'		 => 'list-inline-item',
+									'link_class'	 => 'nav-link pe-0',
+									'fallback_cb'	 => false,
+								)
+							);
+						?>
+
 					</div>
 				</div>
 			</div>
