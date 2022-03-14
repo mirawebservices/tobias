@@ -1,0 +1,15 @@
+.entry-description {
+    padding: 15px;
+    background: $gray-100;
+    border: 1px solid $gray-200;
+    border-radius: 0.3rem;
+    overflow: hidden;
+    p {
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+    img {
+        border: 1px solid $gray-200;
+    }
+}

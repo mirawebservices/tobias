@@ -1,0 +1,13 @@
+.offcanvas {
+    .offcanvas-header {
+        border-bottom: 1px solid $gray-200;
+        .offcanvas-title {
+            margin-top: 0.5rem;
+        }
+    }
+}
+.admin-bar {
+    .offcanvas {
+        margin-top: 32px;
+    }
+}

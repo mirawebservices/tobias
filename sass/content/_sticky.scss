@@ -1,0 +1,8 @@
+article {
+    &.sticky {
+        padding: 15px;
+        background: $gray-100;
+        border: 1px solid $gray-200;
+        border-radius: 0.3rem;
+    }
+}

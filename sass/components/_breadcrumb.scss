@@ -1,0 +1,12 @@
+.entry-breadcrumb {
+    background: $gray-100;
+    border-bottom: 1px solid $gray-200;
+    .breadcrumb {
+        margin-bottom: 0;
+        .breadcrumb-item {
+            &.active {
+            color: $black;
+            }
+        }
+    }
+}

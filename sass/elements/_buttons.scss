@@ -1,0 +1,3 @@
+.btn-outline-white {
+    @include button-outline-variant($white, $black, $white, $white);
+}

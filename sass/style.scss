@@ -1,0 +1,96 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Variables & Mixins
+	- Variables
+	- Mixins
+# Bootstrap
+	- Bootstrap
+# FontAwesome
+	- FontAwesome
+	- Brands
+	- Regular
+	- Solid
+# Elements
+	- Blockquotes
+	- Buttons
+	- Figures
+	- Headings
+	- HR (Horizontal Rule)
+# Utilities
+	- WordPress Core
+# Media
+	- Captions
+	- Galleries
+	- Media
+# Components
+	- Comments
+	- Navbar
+	- Offcanvas
+	- Posts Navigation
+	- Widgets
+# Content
+	- Entry Content
+	- Entry Description
+	- Sticky Post
+	- Page Title
+
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Variables & Mixins
+--------------------------------------------------------------*/
+@import "variables/variables";
+@import "mixins/mixins";
+
+/*--------------------------------------------------------------
+# Bootstrap
+--------------------------------------------------------------*/
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+/*--------------------------------------------------------------
+# FontAwesome
+--------------------------------------------------------------*/
+@import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/regular.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+
+/*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+@import "elements/blockquotes";
+@import "elements/buttons";
+@import "elements/figures";
+@import "elements/headings";
+@import "elements/hr";
+
+/*--------------------------------------------------------------
+# Utilities
+--------------------------------------------------------------*/
+@import "utilities/core";
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+@import "media/captions";
+@import "media/galleries";
+@import "media/media";
+
+/*--------------------------------------------------------------
+# Components
+--------------------------------------------------------------*/
+@import "components/breadcrumb";
+@import "components/comments";
+@import "components/mobile-menu";
+@import "components/navbar";
+@import "components/offcanvas";
+@import "components/posts-navigation";
+@import "components/widgets";
+
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+@import "content/entry";
+@import "content/sticky";
+@import "content/title";

@@ -1,0 +1,31 @@
+/*!
+Theme Name: Tobias
+Theme URI: https://www.tobias.com/
+Author: Mira Web Services
+Author URI: https://www.tobias.com/
+Description: A lightweight starter theme for WordPress incorporating Bootstrap.
+Version: 0.1.0
+Tested up to: 5.9.2
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: tobias
+*/
+
+/*--------------------------------------------------------------
+>>> NOTICE
+----------------------------------------------------------------
+## This theme uses Sass and NodeJS compiling with NPM Packages
+# All SCSS files can be found in the "sass" folder
+# All js files can be found in the "js" folder
+# Compiled and minified assets can be found in the "assets" folder
+
+## Installation
+# To install, down the theme package locally
+# Using command line, navigate to the main theme folder
+# Run "npm install"
+# Run "npm run compile" to compile all assets
+# Run "npm run watch" to compile on the fly when making edits
+# Run "npm run css" to compile just the CSS
+# Run "npm run js" to compile just the JS assets
+--------------------------------------------------------------*/

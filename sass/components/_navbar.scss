@@ -1,0 +1,21 @@
+.navbar {
+	.dropdown-menu {
+		li { 
+			position: relative;
+			&:hover {
+				background-color: $gray-200;
+				.submenu {
+					display: block;
+				}
+			}
+		}
+	}
+	.nav-item {
+		.submenu{ 
+			display: none;
+			position: absolute;
+			left:100%;
+			top:-7px;
+		}
+	}
+}

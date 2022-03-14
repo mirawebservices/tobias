@@ -1,0 +1,31 @@
+.widget {
+	margin: 0 0 1.5em;
+	select {
+		max-width: 100%;
+	}
+}
+.wp-block-latest-comments {
+	padding-left: 0px;
+}
+.wp-block-latest-posts {
+	li {
+		margin-bottom: 15px;
+		border-bottom: 1px solid $gray-200;
+		padding-bottom: 15px;
+		overflow: hidden;
+		.wp-block-latest-posts__featured-image {
+			margin-bottom: 0;
+		}
+		.wp-block-latest-posts__post-excerpt {
+			margin-bottom: 0;
+		}
+	}
+}
+.widget_search {
+	.wp-block-search__input {
+		border-radius: 0.25rem 0 0 0.25rem;
+	}
+	button {
+		border-radius: 0 0.25rem 0.25rem 0;
+	}
+}
