@@ -10,51 +10,31 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<main>
+	<?php get_template_part( 'template-parts/title', '' ); ?>
 
-		<section class="error-404 not-found">
-			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'tobias' ); ?></h1>
-			</header><!-- .page-header -->
+	<?php get_template_part( 'template-parts/breadcrumb', '' ); ?>
 
-			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'tobias' ); ?></p>
+	<div class="container my-3">
+		<div class="row">
+			<div id="primary" class="col-lg-9 pe-lg-3">
 
-					<?php
-					get_search_form();
+			<p><?php esc_html_e( 'It looks like nothing was found at this URL. The page may not exist, has been renamed, or has changed locations.', 'tobias' ); ?></p>
 
-					the_widget( 'WP_Widget_Recent_Posts' );
-					?>
+			<p><?php esc_html_e( 'Check your URL or perform a search below.', 'tobias' ); ?></p>
 
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'tobias' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories(
-								array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								)
-							);
-							?>
-						</ul>
-					</div><!-- .widget -->
+			<?php get_search_form(); ?>
 
-					<?php
-					/* translators: %1$s: smiley */
-					$tobias_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'tobias' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$tobias_archive_content" );
+			</div>
+			
+			<div id="secondary" class="col-lg-3 mt-3 mt-lg-0">
 
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
+				<?php get_sidebar(); ?>
 
-			</div><!-- .page-content -->
-		</section><!-- .error-404 -->
-
-	</main><!-- #main -->
+			</div>
+		</div>
+	</div>
+</main>
 
 <?php
 get_footer();

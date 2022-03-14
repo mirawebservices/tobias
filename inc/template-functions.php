@@ -255,6 +255,10 @@ function tobias_title() {
 		$search_query = get_search_query();
 		echo '<h1 class="display-4 mt-0">Search: '. $search_query .'</h1>';
 
+	} elseif( is_404() ) {
+	  
+		echo '<h1 class="display-4 mt-0">404 - Page Not Found</h1>';
+
 	} elseif( is_page_template( 'page-featured.php' ) ) {
 
 		echo '
@@ -326,6 +330,8 @@ function tobias_breadcrumb() {
 			$output .= '<li class="breadcrumb-item active" aria-current="page">'. get_the_archive_title() .'</li>';
 		} elseif ( is_search() ) {
 			$output .= '<li class="breadcrumb-item active" aria-current="page">Search</li>';
+		} elseif ( is_404() ) {
+			$output .= '<li class="breadcrumb-item active" aria-current="page">Page Not Found</li>';
 		} else {
 			$output .='<li class="breadcrumb-item active" aria-current="page">'. get_the_title() .'</li>';
 		}
