@@ -346,3 +346,22 @@ function tobias_breadcrumb() {
 	echo $output;
 
 }
+
+/**
+ * Header button
+ * 
+ */
+function tobias_header_button() {
+    $tobias_options = get_option( 'tobias_options' );
+    $header_button_text = $tobias_options['header_button_text'];
+	$header_button_link = $tobias_options['header_button_link'];
+
+	if( ! empty ( $header_button_text ) ) {
+		echo '
+			<li id="navbar-cta" class="navbar-item align-middle ml-auto me-4 d-block">
+				<a href="'. $header_button_link .'" class="btn btn-primary">'. $header_button_text .'</a>
+			</li>
+		';
+	}
+
+ }

@@ -48,9 +48,8 @@
 			?>
 
 			<ul class="navbar-nav navbar-nav-secondary ml-auto align-items-center">
-				<li id="navbar-cta" class="navbar-item align-middle ml-auto me-4 d-block">
-					<a href="#" class="btn btn-primary">Get Started</a>
-				</li>
+				<?php tobias_header_button(); ?>
+				
 				<li id="navbar-toggle" class="navbar-item menu-toggle align-middle ml-auto d-block cursor-pointer">
 					<a data-bs-toggle="offcanvas" href="#sidenav" role="button" aria-controls="sidenav" aria-label="Menu toggle">
 						<i class="fa-solid fa-bars fa-2x text-white"></i>

@@ -288,3 +288,63 @@ function tobias_socials_customizer( $wp_customize ){
 
 }
 add_action( 'customize_register', 'tobias_socials_customizer' );
+
+/**
+ * Add Customizer options for the "Tobias Options"
+ * 
+ * @link https://developer.wordpress.org/reference/hooks/customize_register/
+ */
+function tobias_options_customizer( $wp_customize ){
+     
+	// Add Tobias Options section
+    $wp_customize->add_section(
+		'tobias_options',
+		array(
+        	'title'			=> __('Tobias Options', 'tobias'),
+        	'description'	=> 'Miscellaneous settings and options associated with the Tobias theme.',
+        	'priority'		=> 10,
+    	)
+	);
+
+    // Header Button Text
+    $wp_customize->add_setting(
+        'tobias_options[header_button_text]',
+        array(
+            'default'        => 'Get Started',
+            'sanitize_callback' => 'sanitize_text_field',
+            'capability'     => 'edit_theme_options',
+            'type'           => 'option',
+        )
+    );
+    $wp_customize->add_control(
+        'header_button_text',
+        array(
+            'label'      => __('Header Button Text', 'tobias'),
+            'description' => 'Text displayed in the button that appars in the primary navbar/header.',
+            'section'    => 'tobias_options',
+            'settings'   => 'tobias_options[header_button_text]',
+        )
+    );
+
+    // Header Button Link
+    $wp_customize->add_setting(
+        'tobias_options[header_button_link]',
+        array(
+            'default'        => '#link',
+            'sanitize_callback' => 'sanitize_text_field',
+            'capability'     => 'edit_theme_options',
+            'type'           => 'option',
+        )
+    );
+    $wp_customize->add_control(
+        'header_button_link',
+        array(
+            'label'      => __('Header Button Link', 'tobias'),
+            'description' => 'Link URL (absolute or reative) of the button that appars in the primary navbar/header.',
+            'section'    => 'tobias_options',
+            'settings'   => 'tobias_options[header_button_link]',
+        )
+    );
+
+}
+add_action( 'customize_register', 'tobias_options_customizer' );
