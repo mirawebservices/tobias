@@ -134,7 +134,7 @@ function tobias_socials_customizer( $wp_customize ){
     $wp_customize->add_setting(
         'tobias_socials[facebook]',
         array(
-            'default'        => '#',
+            'default'        => '',
             'sanitize_callback' => 'sanitize_text_field',
             'capability'     => 'edit_theme_options',
             'type'           => 'option',
@@ -153,7 +153,7 @@ function tobias_socials_customizer( $wp_customize ){
     $wp_customize->add_setting(
         'tobias_socials[instagram]',
         array(
-            'default'        => '#',
+            'default'        => '',
             'sanitize_callback' => 'sanitize_text_field',
             'capability'     => 'edit_theme_options',
             'type'           => 'option',
@@ -172,7 +172,7 @@ function tobias_socials_customizer( $wp_customize ){
     $wp_customize->add_setting(
         'tobias_socials[twitter]',
         array(
-            'default'        => '#',
+            'default'        => '',
             'sanitize_callback' => 'sanitize_text_field',
             'capability'     => 'edit_theme_options',
             'type'           => 'option',
@@ -191,7 +191,7 @@ function tobias_socials_customizer( $wp_customize ){
     $wp_customize->add_setting(
         'tobias_socials[linkedin]',
         array(
-            'default'        => '#',
+            'default'        => '',
             'sanitize_callback' => 'sanitize_text_field',
             'capability'     => 'edit_theme_options',
             'type'           => 'option',
