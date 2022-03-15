@@ -49,7 +49,7 @@
 
 			<ul class="navbar-nav navbar-nav-secondary ml-auto align-items-center">
 				<?php tobias_header_button(); ?>
-				
+
 				<li id="navbar-toggle" class="navbar-item menu-toggle align-middle ml-auto d-block cursor-pointer">
 					<a data-bs-toggle="offcanvas" href="#sidenav" role="button" aria-controls="sidenav" aria-label="Menu toggle">
 						<i class="fa-solid fa-bars fa-2x text-white"></i>
@@ -90,7 +90,7 @@
 				);
 			?>
 
-			<p class="mb-0 text-center">&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?>. All rights reserved.</p>
+			<p class="mb-0 text-center">&copy; <?php echo date('Y'); ?> <?php tobias_copyright(); ?></p>
 
 		</div>
 	</div>
