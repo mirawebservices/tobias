@@ -56,7 +56,7 @@ function tobias_setup() {
 	) );
 
 	register_nav_menus( array(
-		'menu-3' => esc_html__( 'Footer Credits', 'tobias' ),
+		'menu-3' => esc_html__( 'Footer', 'tobias' ),
 	) );
 
 	/*

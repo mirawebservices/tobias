@@ -44,7 +44,7 @@
 		<div class="py-3">
 			<div class="container px-0">
 				<div class="d-md-flex justify-content-between align-items-center py-3 text-center text-md-left">
-					&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?>. All rights reserved.
+					&copy; <?php echo date('Y'); ?> <?php tobias_copyright(); ?>
 
 					<div class=" mt-3 mt-md-0">
 
