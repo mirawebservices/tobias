@@ -365,3 +365,17 @@ function tobias_header_button() {
 	}
 
  }
+
+ /**
+ * Copyright Text
+ * 
+ */
+function tobias_copyright() {
+    $tobias_options = get_option( 'tobias_options' );
+    $copyright = $tobias_options['copyright'];
+
+	if( ! empty ( $copyright ) ) {
+		echo $copyright;
+	}
+
+ }

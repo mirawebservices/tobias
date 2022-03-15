@@ -346,5 +346,25 @@ function tobias_options_customizer( $wp_customize ){
         )
     );
 
+    // Copyright Text
+    $wp_customize->add_setting(
+        'tobias_options[copyright]',
+        array(
+            'default'        => 'All rights reserved.',
+            'sanitize_callback' => 'sanitize_text_field',
+            'capability'     => 'edit_theme_options',
+            'type'           => 'option',
+        )
+    );
+    $wp_customize->add_control(
+        'copyright',
+        array(
+            'label'      => __('Copyright Text', 'tobias'),
+            'description' => 'Text that accompanies the copyright in the footer.',
+            'section'    => 'tobias_options',
+            'settings'   => 'tobias_options[copyright]',
+        )
+    );
+
 }
 add_action( 'customize_register', 'tobias_options_customizer' );
