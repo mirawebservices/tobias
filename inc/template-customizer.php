@@ -10,385 +10,397 @@
  * 
  * @link https://developer.wordpress.org/reference/hooks/customize_register/
  */
-function tobias_images_customizer( $wp_customize ){
-     
-	// Add Tobias Images section
-    $wp_customize->add_section(
-		'tobias_images',
-		array(
-        	'title'			=> __('Tobias Images', 'tobias'),
-        	'description'	=> 'Images associated with the Tobias theme.',
-        	'priority'		=> 10,
-    	)
-	);
+if ( ! function_exists( 'tobias_images_customizer' ) ) {
 
-	// Add header logo
-    $wp_customize->add_setting(
-		'tobias_images[header_logo]',
-		array(
-        	'default'		=> '',
-        	'capability'	=> 'edit_theme_options',
-        	'type'			=> 'option',
-    	)
-	);
-    $wp_customize->add_control(
-		new WP_Customize_Image_Control(
-			$wp_customize,
-			'header_logo',
-			array(
-        		'label'    => __('Header Logo', 'tobias'),
-				'description'	=> 'Image that appears in the header. Recommended max height: 40px',
-        		'section'  => 'tobias_images',
-        		'settings' => 'tobias_images[header_logo]',
-    		)
-		)
-	);
+    function tobias_images_customizer( $wp_customize ){
+        
+        // Add Tobias Images section
+        $wp_customize->add_section(
+            'tobias_images',
+            array(
+                'title'			=> __('Tobias Images', 'tobias'),
+                'description'	=> 'Images associated with the Tobias theme.',
+                'priority'		=> 10,
+            )
+        );
 
-	// Add mobile logo
-    $wp_customize->add_setting(
-		'tobias_images[mobile_logo]',
-		array(
-        	'default'		=> '',
-        	'capability'	=> 'edit_theme_options',
-        	'type'			=> 'option',
-    	)
-	);
-    $wp_customize->add_control(
-		new WP_Customize_Image_Control(
-			$wp_customize,
-			'mobile_logo',
-			array(
-        		'label'    => __('Mobile Logo', 'tobias'),
-				'description'	=> 'Image that appears in the mobile menu. Recommended max height: 33px',
-        		'section'  => 'tobias_images',
-        		'settings' => 'tobias_images[mobile_logo]',
-    		)
-		)
-	);
+        // Add header logo
+        $wp_customize->add_setting(
+            'tobias_images[header_logo]',
+            array(
+                'default'		=> '',
+                'capability'	=> 'edit_theme_options',
+                'type'			=> 'option',
+            )
+        );
+        $wp_customize->add_control(
+            new WP_Customize_Image_Control(
+                $wp_customize,
+                'header_logo',
+                array(
+                    'label'    => __('Header Logo', 'tobias'),
+                    'description'	=> 'Image that appears in the header. Recommended max height: 40px',
+                    'section'  => 'tobias_images',
+                    'settings' => 'tobias_images[header_logo]',
+                )
+            )
+        );
 
-	// Add footer logo
-    $wp_customize->add_setting(
-		'tobias_images[footer_logo]',
-		array(
-        	'default'		=> '',
-        	'capability'	=> 'edit_theme_options',
-        	'type'			=> 'option',
-    	)
-	);
-    $wp_customize->add_control(
-		new WP_Customize_Image_Control(
-			$wp_customize,
-			'footer_logo',
-			array(
-        		'label'    => __('Footer Logo', 'tobias'),
-				'description'	=> 'Image that appears in the footer. Recommended max height: 65px',
-        		'section'  => 'tobias_images',
-        		'settings' => 'tobias_images[footer_logo]',
-    		)
-		)
-	);
+        // Add mobile logo
+        $wp_customize->add_setting(
+            'tobias_images[mobile_logo]',
+            array(
+                'default'		=> '',
+                'capability'	=> 'edit_theme_options',
+                'type'			=> 'option',
+            )
+        );
+        $wp_customize->add_control(
+            new WP_Customize_Image_Control(
+                $wp_customize,
+                'mobile_logo',
+                array(
+                    'label'    => __('Mobile Logo', 'tobias'),
+                    'description'	=> 'Image that appears in the mobile menu. Recommended max height: 33px',
+                    'section'  => 'tobias_images',
+                    'settings' => 'tobias_images[mobile_logo]',
+                )
+            )
+        );
 
-	// Add admin login logo
-    $wp_customize->add_setting(
-		'tobias_images[admin_logo]',
-		array(
-        	'default'		=> '',
-        	'capability'	=> 'edit_theme_options',
-        	'type'			=> 'option',
-    	)
-	);
-    $wp_customize->add_control(
-		new WP_Customize_Image_Control(
-			$wp_customize,
-			'admin_logo',
-			array(
-        		'label'    => __('Admin Logo', 'tobias'),
-				'description'	=> 'Image that appears on the WordPress login screen. Recommended dimensions: 250px by 250px',
-        		'section'  => 'tobias_images',
-        		'settings' => 'tobias_images[admin_logo]',
-    		)
-		)
-	);
-	
+        // Add footer logo
+        $wp_customize->add_setting(
+            'tobias_images[footer_logo]',
+            array(
+                'default'		=> '',
+                'capability'	=> 'edit_theme_options',
+                'type'			=> 'option',
+            )
+        );
+        $wp_customize->add_control(
+            new WP_Customize_Image_Control(
+                $wp_customize,
+                'footer_logo',
+                array(
+                    'label'    => __('Footer Logo', 'tobias'),
+                    'description'	=> 'Image that appears in the footer. Recommended max height: 65px',
+                    'section'  => 'tobias_images',
+                    'settings' => 'tobias_images[footer_logo]',
+                )
+            )
+        );
+
+        // Add admin login logo
+        $wp_customize->add_setting(
+            'tobias_images[admin_logo]',
+            array(
+                'default'		=> '',
+                'capability'	=> 'edit_theme_options',
+                'type'			=> 'option',
+            )
+        );
+        $wp_customize->add_control(
+            new WP_Customize_Image_Control(
+                $wp_customize,
+                'admin_logo',
+                array(
+                    'label'    => __('Admin Logo', 'tobias'),
+                    'description'	=> 'Image that appears on the WordPress login screen. Recommended dimensions: 250px by 250px',
+                    'section'  => 'tobias_images',
+                    'settings' => 'tobias_images[admin_logo]',
+                )
+            )
+        );
+        
+    }
+    add_action( 'customize_register', 'tobias_images_customizer' );
+
 }
-add_action( 'customize_register', 'tobias_images_customizer' );
 
 /**
  * Add Customizer options for the "Tobias Socials"
  * 
  * @link https://developer.wordpress.org/reference/hooks/customize_register/
  */
-function tobias_socials_customizer( $wp_customize ){
-     
-	// Add Tobias Socials section
-    $wp_customize->add_section(
-		'tobias_socials',
-		array(
-        	'title'			=> __('Tobias Socials', 'tobias'),
-        	'description'	=> 'Social media links associated with the Tobias theme.',
-        	'priority'		=> 10,
-    	)
-	);
+if ( ! function_exists( 'tobias_socials_customizer' ) ) {
+    
+    function tobias_socials_customizer( $wp_customize ){
+        
+        // Add Tobias Socials section
+        $wp_customize->add_section(
+            'tobias_socials',
+            array(
+                'title'			=> __('Tobias Socials', 'tobias'),
+                'description'	=> 'Social media links associated with the Tobias theme.',
+                'priority'		=> 10,
+            )
+        );
 
-    // Facebook
-    $wp_customize->add_setting(
-        'tobias_socials[facebook]',
-        array(
-            'default'        => '',
-            'sanitize_callback' => 'sanitize_text_field',
-            'capability'     => 'edit_theme_options',
-            'type'           => 'option',
-        )
-    );
-    $wp_customize->add_control(
-        'facebook',
-        array(
-            'label'      => __('Facebook', 'tobias'),
-            'section'    => 'tobias_socials',
-            'settings'   => 'tobias_socials[facebook]',
-        )
-    );
+        // Facebook
+        $wp_customize->add_setting(
+            'tobias_socials[facebook]',
+            array(
+                'default'        => '',
+                'sanitize_callback' => 'sanitize_text_field',
+                'capability'     => 'edit_theme_options',
+                'type'           => 'option',
+            )
+        );
+        $wp_customize->add_control(
+            'facebook',
+            array(
+                'label'      => __('Facebook', 'tobias'),
+                'section'    => 'tobias_socials',
+                'settings'   => 'tobias_socials[facebook]',
+            )
+        );
 
-    // Instagram
-    $wp_customize->add_setting(
-        'tobias_socials[instagram]',
-        array(
-            'default'        => '',
-            'sanitize_callback' => 'sanitize_text_field',
-            'capability'     => 'edit_theme_options',
-            'type'           => 'option',
-        )
-    );
-    $wp_customize->add_control(
-        'instagram',
-        array(
-            'label'      => __('Instagram', 'tobias'),
-            'section'    => 'tobias_socials',
-            'settings'   => 'tobias_socials[instagram]',
-        )
-    );
+        // Instagram
+        $wp_customize->add_setting(
+            'tobias_socials[instagram]',
+            array(
+                'default'        => '',
+                'sanitize_callback' => 'sanitize_text_field',
+                'capability'     => 'edit_theme_options',
+                'type'           => 'option',
+            )
+        );
+        $wp_customize->add_control(
+            'instagram',
+            array(
+                'label'      => __('Instagram', 'tobias'),
+                'section'    => 'tobias_socials',
+                'settings'   => 'tobias_socials[instagram]',
+            )
+        );
 
-    // Twitter
-    $wp_customize->add_setting(
-        'tobias_socials[twitter]',
-        array(
-            'default'        => '',
-            'sanitize_callback' => 'sanitize_text_field',
-            'capability'     => 'edit_theme_options',
-            'type'           => 'option',
-        )
-    );
-    $wp_customize->add_control(
-        'twitter',
-        array(
-            'label'      => __('Twitter', 'tobias'),
-            'section'    => 'tobias_socials',
-            'settings'   => 'tobias_socials[twitter]',
-        )
-    );
+        // Twitter
+        $wp_customize->add_setting(
+            'tobias_socials[twitter]',
+            array(
+                'default'        => '',
+                'sanitize_callback' => 'sanitize_text_field',
+                'capability'     => 'edit_theme_options',
+                'type'           => 'option',
+            )
+        );
+        $wp_customize->add_control(
+            'twitter',
+            array(
+                'label'      => __('Twitter', 'tobias'),
+                'section'    => 'tobias_socials',
+                'settings'   => 'tobias_socials[twitter]',
+            )
+        );
 
-    // LinkedIn
-    $wp_customize->add_setting(
-        'tobias_socials[linkedin]',
-        array(
-            'default'        => '',
-            'sanitize_callback' => 'sanitize_text_field',
-            'capability'     => 'edit_theme_options',
-            'type'           => 'option',
-        )
-    );
-    $wp_customize->add_control(
-        'linkedin',
-        array(
-            'label'      => __('LinkedIn', 'tobias'),
-            'section'    => 'tobias_socials',
-            'settings'   => 'tobias_socials[linkedin]',
-        )
-    );
+        // LinkedIn
+        $wp_customize->add_setting(
+            'tobias_socials[linkedin]',
+            array(
+                'default'        => '',
+                'sanitize_callback' => 'sanitize_text_field',
+                'capability'     => 'edit_theme_options',
+                'type'           => 'option',
+            )
+        );
+        $wp_customize->add_control(
+            'linkedin',
+            array(
+                'label'      => __('LinkedIn', 'tobias'),
+                'section'    => 'tobias_socials',
+                'settings'   => 'tobias_socials[linkedin]',
+            )
+        );
 
-    // YouTube
-    $wp_customize->add_setting(
-        'tobias_socials[youtube]',
-        array(
-            'default'        => '',
-            'sanitize_callback' => 'sanitize_text_field',
-            'capability'     => 'edit_theme_options',
-            'type'           => 'option',
-        )
-    );
-    $wp_customize->add_control(
-        'youtube',
-        array(
-            'label'      => __('YouTube', 'tobias'),
-            'section'    => 'tobias_socials',
-            'settings'   => 'tobias_socials[youtube]',
-        )
-    );
+        // YouTube
+        $wp_customize->add_setting(
+            'tobias_socials[youtube]',
+            array(
+                'default'        => '',
+                'sanitize_callback' => 'sanitize_text_field',
+                'capability'     => 'edit_theme_options',
+                'type'           => 'option',
+            )
+        );
+        $wp_customize->add_control(
+            'youtube',
+            array(
+                'label'      => __('YouTube', 'tobias'),
+                'section'    => 'tobias_socials',
+                'settings'   => 'tobias_socials[youtube]',
+            )
+        );
 
-    // Pinterest
-    $wp_customize->add_setting(
-        'tobias_socials[pinterest]',
-        array(
-            'default'        => '',
-            'sanitize_callback' => 'sanitize_text_field',
-            'capability'     => 'edit_theme_options',
-            'type'           => 'option',
-        )
-    );
-    $wp_customize->add_control(
-        'pinterest',
-        array(
-            'label'      => __('Pinterest', 'tobias'),
-            'section'    => 'tobias_socials',
-            'settings'   => 'tobias_socials[pinterest]',
-        )
-    );
+        // Pinterest
+        $wp_customize->add_setting(
+            'tobias_socials[pinterest]',
+            array(
+                'default'        => '',
+                'sanitize_callback' => 'sanitize_text_field',
+                'capability'     => 'edit_theme_options',
+                'type'           => 'option',
+            )
+        );
+        $wp_customize->add_control(
+            'pinterest',
+            array(
+                'label'      => __('Pinterest', 'tobias'),
+                'section'    => 'tobias_socials',
+                'settings'   => 'tobias_socials[pinterest]',
+            )
+        );
 
-    // Github
-    $wp_customize->add_setting(
-        'tobias_socials[github]',
-        array(
-            'default'        => '',
-            'sanitize_callback' => 'sanitize_text_field',
-            'capability'     => 'edit_theme_options',
-            'type'           => 'option',
-        )
-    );
-    $wp_customize->add_control(
-        'github',
-        array(
-            'label'      => __('Github', 'tobias'),
-            'section'    => 'tobias_socials',
-            'settings'   => 'tobias_socials[github]',
-        )
-    );
+        // Github
+        $wp_customize->add_setting(
+            'tobias_socials[github]',
+            array(
+                'default'        => '',
+                'sanitize_callback' => 'sanitize_text_field',
+                'capability'     => 'edit_theme_options',
+                'type'           => 'option',
+            )
+        );
+        $wp_customize->add_control(
+            'github',
+            array(
+                'label'      => __('Github', 'tobias'),
+                'section'    => 'tobias_socials',
+                'settings'   => 'tobias_socials[github]',
+            )
+        );
 
-    // Icon options
-    $wp_customize->add_setting(
-        'tobias_socials_icon_type',
-        array(
-            'default'        => 'normal',
-            'capability'     => 'edit_theme_options',
-            'type'           => 'option',
-        )
-    );
-    $wp_customize->add_control(
-        'icon_options',
-        array(
-            'settings' => 'tobias_socials_icon_type',
-            'label'   => 'Icon Type',
-            'section' => 'tobias_socials',
-            'type'    => 'select',
-            'choices'    => array(
-                'normal' => 'Normal',
-                'square' => 'Square',
-            ),
-        )
-    );
+        // Icon options
+        $wp_customize->add_setting(
+            'tobias_socials_icon_type',
+            array(
+                'default'        => 'normal',
+                'capability'     => 'edit_theme_options',
+                'type'           => 'option',
+            )
+        );
+        $wp_customize->add_control(
+            'icon_options',
+            array(
+                'settings' => 'tobias_socials_icon_type',
+                'label'   => 'Icon Type',
+                'section' => 'tobias_socials',
+                'type'    => 'select',
+                'choices'    => array(
+                    'normal' => 'Normal',
+                    'square' => 'Square',
+                ),
+            )
+        );
+
+    }
+    add_action( 'customize_register', 'tobias_socials_customizer' );
 
 }
-add_action( 'customize_register', 'tobias_socials_customizer' );
 
 /**
  * Add Customizer options for the "Tobias Options"
  * 
  * @link https://developer.wordpress.org/reference/hooks/customize_register/
  */
-function tobias_options_customizer( $wp_customize ){
-     
-	// Add Tobias Options section
-    $wp_customize->add_section(
-		'tobias_options',
-		array(
-        	'title'			=> __('Tobias Options', 'tobias'),
-        	'description'	=> 'Miscellaneous settings and options associated with the Tobias theme.',
-        	'priority'		=> 10,
-    	)
-	);
+if ( ! function_exists( 'tobias_options_customizer' ) ) {
 
-    // Header Button Text
-    $wp_customize->add_setting(
-        'tobias_options[header_button_text]',
-        array(
-            'default'        => 'Get Started',
-            'sanitize_callback' => 'sanitize_text_field',
-            'capability'     => 'edit_theme_options',
-            'type'           => 'option',
-        )
-    );
-    $wp_customize->add_control(
-        'header_button_text',
-        array(
-            'label'      => __('Header Button Text', 'tobias'),
-            'description' => 'Text displayed in the button that appars in the primary navbar/header.',
-            'section'    => 'tobias_options',
-            'settings'   => 'tobias_options[header_button_text]',
-        )
-    );
+    function tobias_options_customizer( $wp_customize ){
+        
+        // Add Tobias Options section
+        $wp_customize->add_section(
+            'tobias_options',
+            array(
+                'title'			=> __('Tobias Options', 'tobias'),
+                'description'	=> 'Miscellaneous settings and options associated with the Tobias theme.',
+                'priority'		=> 10,
+            )
+        );
 
-    // Header Button Link
-    $wp_customize->add_setting(
-        'tobias_options[header_button_link]',
-        array(
-            'default'        => '#link',
-            'sanitize_callback' => 'sanitize_text_field',
-            'capability'     => 'edit_theme_options',
-            'type'           => 'option',
-        )
-    );
-    $wp_customize->add_control(
-        'header_button_link',
-        array(
-            'label'      => __('Header Button Link', 'tobias'),
-            'description' => 'Link URL (absolute or reative) of the button that appars in the primary navbar/header.',
-            'section'    => 'tobias_options',
-            'settings'   => 'tobias_options[header_button_link]',
-        )
-    );
+        // Header Button Text
+        $wp_customize->add_setting(
+            'tobias_options[header_button_text]',
+            array(
+                'default'        => 'Get Started',
+                'sanitize_callback' => 'sanitize_text_field',
+                'capability'     => 'edit_theme_options',
+                'type'           => 'option',
+            )
+        );
+        $wp_customize->add_control(
+            'header_button_text',
+            array(
+                'label'      => __('Header Button Text', 'tobias'),
+                'description' => 'Text displayed in the button that appars in the primary navbar/header.',
+                'section'    => 'tobias_options',
+                'settings'   => 'tobias_options[header_button_text]',
+            )
+        );
 
-    // Copyright Text
-    $wp_customize->add_setting(
-        'tobias_options[copyright]',
-        array(
-            'default'        => 'All rights reserved.',
-            'sanitize_callback' => 'sanitize_text_field',
-            'capability'     => 'edit_theme_options',
-            'type'           => 'option',
-        )
-    );
-    $wp_customize->add_control(
-        'copyright',
-        array(
-            'label'      => __('Copyright Text', 'tobias'),
-            'description' => 'Text that accompanies the copyright in the footer.',
-            'section'    => 'tobias_options',
-            'settings'   => 'tobias_options[copyright]',
-        )
-    );
+        // Header Button Link
+        $wp_customize->add_setting(
+            'tobias_options[header_button_link]',
+            array(
+                'default'        => '#link',
+                'sanitize_callback' => 'sanitize_text_field',
+                'capability'     => 'edit_theme_options',
+                'type'           => 'option',
+            )
+        );
+        $wp_customize->add_control(
+            'header_button_link',
+            array(
+                'label'      => __('Header Button Link', 'tobias'),
+                'description' => 'Link URL (absolute or reative) of the button that appars in the primary navbar/header.',
+                'section'    => 'tobias_options',
+                'settings'   => 'tobias_options[header_button_link]',
+            )
+        );
 
-    // Posts order
-    $wp_customize->add_setting(
-        'tobias_options[posts_order]',
-        array(
-            'default'        => 'DESC',
-            'capability'     => 'edit_theme_options',
-            'type'           => 'option',
-        )
-    );
-    $wp_customize->add_control(
-        'posts_order',
-        array(
-            'settings' => 'tobias_options[posts_order]',
-            'label'   => 'Posts Order',
-            'description' => 'How to order the posts according to their publish date.',
-            'section' => 'tobias_options',
-            'type'    => 'select',
-            'choices'    => array(
-                'DESC' => 'Descending (Default)',
-                'ASC' => 'Ascending',
-            ),
-        )
-    );
+        // Copyright Text
+        $wp_customize->add_setting(
+            'tobias_options[copyright]',
+            array(
+                'default'        => 'All rights reserved.',
+                'sanitize_callback' => 'sanitize_text_field',
+                'capability'     => 'edit_theme_options',
+                'type'           => 'option',
+            )
+        );
+        $wp_customize->add_control(
+            'copyright',
+            array(
+                'label'      => __('Copyright Text', 'tobias'),
+                'description' => 'Text that accompanies the copyright in the footer.',
+                'section'    => 'tobias_options',
+                'settings'   => 'tobias_options[copyright]',
+            )
+        );
+
+        // Posts order
+        $wp_customize->add_setting(
+            'tobias_options[posts_order]',
+            array(
+                'default'        => 'DESC',
+                'capability'     => 'edit_theme_options',
+                'type'           => 'option',
+            )
+        );
+        $wp_customize->add_control(
+            'posts_order',
+            array(
+                'settings' => 'tobias_options[posts_order]',
+                'label'   => 'Posts Order',
+                'description' => 'How to order the posts according to their publish date.',
+                'section' => 'tobias_options',
+                'type'    => 'select',
+                'choices'    => array(
+                    'DESC' => 'Descending (Default)',
+                    'ASC' => 'Ascending',
+                ),
+            )
+        );
+
+    }
+    add_action( 'customize_register', 'tobias_options_customizer' );
 
 }
-add_action( 'customize_register', 'tobias_options_customizer' );
