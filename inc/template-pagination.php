@@ -92,9 +92,11 @@ function tobias_posts_pagination( $args = array() ) {
     if ( !empty($output) ) {
         echo $args['before_output'] . $output . $args['after_output'];
     }
+
 }
 
 function tobias_comments_navigation( $args = array() ) {
+
 	$output = '';
     
 	// Are there comments to navigate through?
@@ -138,4 +140,5 @@ function tobias_comments_navigation( $args = array() ) {
 	}
 
 	echo $output;
+    
 }

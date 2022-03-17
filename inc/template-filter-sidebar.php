@@ -10,6 +10,7 @@
  */
 
 function tobias_filter_sidebar( $sidebar ) {
+
     ob_start();
 
     $bool = dynamic_sidebar( $sidebar );
@@ -23,4 +24,5 @@ function tobias_filter_sidebar( $sidebar ) {
     ob_end_clean();
 
     echo $output;
+    
 }
