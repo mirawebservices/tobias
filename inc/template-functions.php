@@ -379,3 +379,19 @@ function tobias_copyright() {
 	}
 
  }
+
+/**
+ * Change ordering of posts if set in Customizer options
+ * 
+ */
+function tobias_posts_order( $query ) {
+	$tobias_options = get_option( 'tobias_options' );
+    $posts_order = $tobias_options['posts_order'];
+
+	if ( $posts_order == 'ASC' ) {
+		if ( ! is_admin() && $query->is_main_query() ) {
+			$query->set( 'order', 'ASC' );
+		}
+	}
+ }
+ add_action( 'pre_get_posts', 'tobias_posts_order' );

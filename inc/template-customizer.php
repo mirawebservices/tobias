@@ -366,5 +366,29 @@ function tobias_options_customizer( $wp_customize ){
         )
     );
 
+    // Posts order
+    $wp_customize->add_setting(
+        'tobias_options[posts_order]',
+        array(
+            'default'        => 'DESC',
+            'capability'     => 'edit_theme_options',
+            'type'           => 'option',
+        )
+    );
+    $wp_customize->add_control(
+        'posts_order',
+        array(
+            'settings' => 'tobias_options[posts_order]',
+            'label'   => 'Posts Order',
+            'description' => 'How to order the posts according to their publish date.',
+            'section' => 'tobias_options',
+            'type'    => 'select',
+            'choices'    => array(
+                'DESC' => 'Descending (Default)',
+                'ASC' => 'Ascending',
+            ),
+        )
+    );
+
 }
 add_action( 'customize_register', 'tobias_options_customizer' );
