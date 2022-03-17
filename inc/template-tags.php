@@ -11,6 +11,7 @@
 if ( ! function_exists( 'tobias_entry_footer' ) ) {
 	
 	function tobias_entry_footer() {
+
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
@@ -44,6 +45,7 @@ if ( ! function_exists( 'tobias_entry_footer' ) ) {
 			'<span class="edit-link">',
 			'</span>'
 		);
+
 	}
 
 }
@@ -54,6 +56,7 @@ if ( ! function_exists( 'tobias_entry_footer' ) ) {
 if ( ! function_exists( 'tobias_posted_on' ) ) {
 
 	function tobias_posted_on( $postDate ) {
+
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 
 		$time_string = sprintf(
@@ -80,6 +83,7 @@ if ( ! function_exists( 'tobias_posted_on' ) ) {
 if ( ! function_exists( 'tobias_posted_by' ) ) {
 	
 	function tobias_posted_by( $authorID ) {
+
 		$byline = sprintf(
 			/* translators: %s: post author. */
 			esc_html_x( 'by %s', 'post author', 'tobias' ),
@@ -100,7 +104,9 @@ if ( ! function_exists( 'tobias_posted_by' ) ) {
 if ( ! function_exists( 'wp_body_open' ) ) {
 	
 	function wp_body_open() {
+
 		do_action( 'wp_body_open' );
+		
 	}
 
 }
