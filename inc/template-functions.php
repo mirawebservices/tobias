@@ -6,24 +6,123 @@
  */
 
 /**
- * Add support for excerpts on pages
+ * Custom admin logo
  */
-function tobias_page_excerpt() {	
-	add_post_type_support( 'page', 'excerpt' );
+function tobias_admin_logo() {
+
+    $tobias_theme_images = get_option( 'tobias_images' );
+    $admin_logo = $tobias_theme_images['admin_logo'];
+
+    if( ! empty( $admin_logo ) ) {
+        echo '
+            <style type="text/css"> 
+            body.login div#login h1 a {
+                background-image: url('. $admin_logo .');
+                width: 250px;
+            } 
+            </style>
+        ';
+    }
+
 }
-add_action( 'init', 'tobias_page_excerpt' );
+add_action( 'login_enqueue_scripts', 'tobias_admin_logo' );
 
 /**
- * Add a pingback url auto-discovery header for single posts, pages, or attachments.
+ * Display breadcrumbs on pages
  */
-function tobias_pingback_header() {
+function tobias_breadcrumb() {
 
-	if ( is_singular() && pings_open() ) {
-		printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
+	$output = '
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+	';
+
+	if ( is_front_page() ) {
+
+		$output .= '<li class="breadcrumb-item active" aria-current="page">Home</li>';
+
+	} elseif ( is_home() && ! is_front_page() ) {
+
+		$blog_title = get_the_title( get_option( 'page_for_posts', true ) );
+
+		$output .= '<li class="breadcrumb-item"><a href="'. home_url() .'">Home</a></li>';
+		$output .= '<li class="breadcrumb-item active" aria-current="page">'. $blog_title .'</li>';
+
+	} else {
+
+		$output .= '<li class="breadcrumb-item"><a href="'. home_url() .'">Home</a></li>';
+
+		$parents = get_post_ancestors( $post->ID );
+		foreach ( $parents as $parent ) {
+			$output .='<li class="breadcrumb-item"><a href="'. get_the_permalink( $parent ) .'">'. get_the_title( $parent ) .'</a></li>';
+		}
+
+		if ( is_archive() ) {
+			$output .= '<li class="breadcrumb-item active" aria-current="page">'. get_the_archive_title() .'</li>';
+		} elseif ( is_search() ) {
+			$output .= '<li class="breadcrumb-item active" aria-current="page">Search</li>';
+		} elseif ( is_404() ) {
+			$output .= '<li class="breadcrumb-item active" aria-current="page">Page Not Found</li>';
+		} else {
+			$output .='<li class="breadcrumb-item active" aria-current="page">'. get_the_title() .'</li>';
+		}
+
+	}
+
+	$output .= '
+			</ol>
+		</nav>
+	';
+
+	echo $output;
+
+}
+
+/**
+ * Copyright Text
+ * 
+ */
+function tobias_copyright() {
+
+    $tobias_options = get_option( 'tobias_options' );
+    $copyright = $tobias_options['copyright'];
+
+	if( ! empty ( $copyright ) ) {
+		echo $copyright;
+	}
+
+ }
+
+/**
+ * Display featured image as background image in title for Featured Page template
+ */
+function tobias_featured_page_image() {
+
+	if ( is_page_template( 'page-featured.php' ) && has_post_thumbnail() ) {
+		echo 'style="background: linear-gradient(90deg, rgb(0 0 0 / 75%), rgb(0 0 0 / 50%)), url('. esc_url( get_the_post_thumbnail_url( get_the_ID(), 'full' ) ) .') right / cover no-repeat; color: #fff;"';
 	}
 
 }
-add_action( 'wp_head', 'tobias_pingback_header' );
+
+/**
+ * Header button
+ * 
+ */
+function tobias_header_button() {
+
+    $tobias_options = get_option( 'tobias_options' );
+    $header_button_text = $tobias_options['header_button_text'];
+	$header_button_link = $tobias_options['header_button_link'];
+
+	if( ! empty ( $header_button_text ) ) {
+		echo '
+			<li id="navbar-cta" class="navbar-item align-middle ml-auto me-4 d-block">
+				<a href="'. $header_button_link .'" class="btn btn-primary">'. $header_button_text .'</a>
+			</li>
+		';
+	}
+
+}
 
 /**
  * Add additional "li_class" argument for wp_nav_menu
@@ -53,44 +152,50 @@ function tobias_menu_link_class( $atts, $item, $args ) {
 add_filter( 'nav_menu_link_attributes', 'tobias_menu_link_class', 1, 3 );
 
 /**
- * Function for displaying theme images within templates
+ * Add support for excerpts on pages
+ */
+function tobias_page_excerpt() {
+
+	add_post_type_support( 'page', 'excerpt' );
+
+}
+add_action( 'init', 'tobias_page_excerpt' );
+
+/**
+ * Add a pingback url auto-discovery header for single posts, pages, or attachments.
+ */
+function tobias_pingback_header() {
+
+	if ( is_singular() && pings_open() ) {
+		printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
+	}
+
+}
+add_action( 'wp_head', 'tobias_pingback_header' );
+
+/**
+ * Change ordering of posts if set in Customizer options
  * 
  */
-function tobias_theme_images( $image ) {
-    $tobias_theme_images = get_option( 'tobias_images' );
-    $theme_image = $tobias_theme_images[$image];
+function tobias_posts_order( $query ) {
 
-    if( ! empty( $theme_image ) ) {
-        echo '<img src="' . esc_url( $theme_image ) . '" class="img-fluid" alt="' . get_bloginfo( 'name' ) . '">';
-    } else {
-        echo '<span class="h5">'. get_bloginfo('name') .'</span>';
-    }
- }
+	$tobias_options = get_option( 'tobias_options' );
+    $posts_order = $tobias_options['posts_order'];
 
- /**
- * Custom admin logo
- */
-function tobias_admin_logo() {
-    $tobias_theme_images = get_option( 'tobias_images' );
-    $admin_logo = $tobias_theme_images['admin_logo'];
+	if ( $posts_order == 'ASC' ) {
+		if ( ! is_admin() && $query->is_main_query() ) {
+			$query->set( 'order', 'ASC' );
+		}
+	}
 
-    if( ! empty( $admin_logo ) ) {
-        echo '
-            <style type="text/css"> 
-            body.login div#login h1 a {
-                background-image: url('. $admin_logo .');
-                width: 250px;
-            } 
-            </style>
-        ';
-    }
 }
-add_action( 'login_enqueue_scripts', 'tobias_admin_logo' );
+add_action( 'pre_get_posts', 'tobias_posts_order' );
 
 /**
  * Display social media links
  */
 function tobias_socials( $args = '' ) {
+
 	$tobias_socials = get_option( 'tobias_socials' );
 	$tobias_socials_icon_type = get_option( 'tobias_socials_icon_type' );
   
@@ -233,6 +338,23 @@ function tobias_socials( $args = '' ) {
 }
 
 /**
+ * Function for displaying theme images within templates
+ * 
+ */
+function tobias_theme_images( $image ) {
+
+    $tobias_theme_images = get_option( 'tobias_images' );
+    $theme_image = $tobias_theme_images[$image];
+
+    if( ! empty( $theme_image ) ) {
+        echo '<img src="' . esc_url( $theme_image ) . '" class="img-fluid" alt="' . get_bloginfo( 'name' ) . '">';
+    } else {
+        echo '<span class="h5">'. get_bloginfo('name') .'</span>';
+    }
+	
+ }
+
+/**
  * Display a page title
  */
 function tobias_title() {
@@ -284,114 +406,3 @@ function tobias_title() {
 	}
 
 }
-
-/**
- * Display featured image as background image in title for Featured Page template
- */
-function tobias_featured_page_image() {
-
-	if ( is_page_template( 'page-featured.php' ) && has_post_thumbnail() ) {
-		echo 'style="background: linear-gradient(90deg, rgb(0 0 0 / 75%), rgb(0 0 0 / 50%)), url('. esc_url( get_the_post_thumbnail_url( get_the_ID(), 'full' ) ) .') right / cover no-repeat; color: #fff;"';
-	}
-
-}
-
-/**
- * Display breadcrumbs on pages
- */
-function tobias_breadcrumb() {
-
-	$output = '
-		<nav aria-label="breadcrumb">
-			<ol class="breadcrumb">
-	';
-
-	if ( is_front_page() ) {
-
-		$output .= '<li class="breadcrumb-item active" aria-current="page">Home</li>';
-
-	} elseif ( is_home() && ! is_front_page() ) {
-
-		$blog_title = get_the_title( get_option( 'page_for_posts', true ) );
-
-		$output .= '<li class="breadcrumb-item"><a href="'. home_url() .'">Home</a></li>';
-		$output .= '<li class="breadcrumb-item active" aria-current="page">'. $blog_title .'</li>';
-
-	} else {
-
-		$output .= '<li class="breadcrumb-item"><a href="'. home_url() .'">Home</a></li>';
-
-		$parents = get_post_ancestors( $post->ID );
-		foreach ( $parents as $parent ) {
-			$output .='<li class="breadcrumb-item"><a href="'. get_the_permalink( $parent ) .'">'. get_the_title( $parent ) .'</a></li>';
-		}
-
-		if ( is_archive() ) {
-			$output .= '<li class="breadcrumb-item active" aria-current="page">'. get_the_archive_title() .'</li>';
-		} elseif ( is_search() ) {
-			$output .= '<li class="breadcrumb-item active" aria-current="page">Search</li>';
-		} elseif ( is_404() ) {
-			$output .= '<li class="breadcrumb-item active" aria-current="page">Page Not Found</li>';
-		} else {
-			$output .='<li class="breadcrumb-item active" aria-current="page">'. get_the_title() .'</li>';
-		}
-
-	}
-
-	$output .= '
-			</ol>
-		</nav>
-	';
-
-	echo $output;
-
-}
-
-/**
- * Header button
- * 
- */
-function tobias_header_button() {
-    $tobias_options = get_option( 'tobias_options' );
-    $header_button_text = $tobias_options['header_button_text'];
-	$header_button_link = $tobias_options['header_button_link'];
-
-	if( ! empty ( $header_button_text ) ) {
-		echo '
-			<li id="navbar-cta" class="navbar-item align-middle ml-auto me-4 d-block">
-				<a href="'. $header_button_link .'" class="btn btn-primary">'. $header_button_text .'</a>
-			</li>
-		';
-	}
-
- }
-
- /**
- * Copyright Text
- * 
- */
-function tobias_copyright() {
-    $tobias_options = get_option( 'tobias_options' );
-    $copyright = $tobias_options['copyright'];
-
-	if( ! empty ( $copyright ) ) {
-		echo $copyright;
-	}
-
- }
-
-/**
- * Change ordering of posts if set in Customizer options
- * 
- */
-function tobias_posts_order( $query ) {
-	$tobias_options = get_option( 'tobias_options' );
-    $posts_order = $tobias_options['posts_order'];
-
-	if ( $posts_order == 'ASC' ) {
-		if ( ! is_admin() && $query->is_main_query() ) {
-			$query->set( 'order', 'ASC' );
-		}
-	}
- }
- add_action( 'pre_get_posts', 'tobias_posts_order' );
