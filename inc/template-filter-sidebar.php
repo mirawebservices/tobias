@@ -9,18 +9,24 @@
  * @package Tobias
  */
 
-function tobias_filter_sidebar( $sidebar ) {
-    ob_start();
+if ( ! function_exists( 'tobias_filter_sidebar' ) ) {
 
-    $bool = dynamic_sidebar( $sidebar );
-    $output = '';
+    function tobias_filter_sidebar( $sidebar ) {
 
-    if ( $bool ) {
-        $output = ob_get_contents();
-        $output = add_bootstrap_classes($output);
+        ob_start();
+
+        $bool = dynamic_sidebar( $sidebar );
+        $output = '';
+
+        if ( $bool ) {
+            $output = ob_get_contents();
+            $output = add_bootstrap_classes($output);
+        }
+
+        ob_end_clean();
+
+        echo $output;
+        
     }
 
-    ob_end_clean();
-
-    echo $output;
 }
