@@ -56,7 +56,7 @@
 									'menu_id'        => 'policies',
 									'menu_class' 	 => 'list-inline mb-0',
 									'li_class'		 => 'list-inline-item',
-									'link_class'	 => 'nav-link pe-0',
+									'link_class'	 => 'nav-link px-0 ms-3',
 									'fallback_cb'	 => false,
 								)
 							);
