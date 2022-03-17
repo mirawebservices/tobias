@@ -115,7 +115,7 @@ function tobias_socials( $args = '' ) {
 
 		$output .= '
 			<li class="list-inline-item">
-				<a class="pe-1" href="'. $tobias_socials['facebook'] .'" aria-label="'. get_bloginfo('name') .' on Facebook">
+				<a class="me-1" href="'. $tobias_socials['facebook'] .'" aria-label="'. get_bloginfo('name') .' on Facebook">
 					<i class="fab fa-fw '. $facebook_icon .' fa-lg"></i>
 				</a>
 			</li>
@@ -132,7 +132,7 @@ function tobias_socials( $args = '' ) {
 
 		$output .= '
 			<li class="list-inline-item">
-				<a class="pe-1" href="'. $tobias_socials['instagram'] .'" aria-label="'. get_bloginfo('name') .' on Instagram">
+				<a class="me-1" href="'. $tobias_socials['instagram'] .'" aria-label="'. get_bloginfo('name') .' on Instagram">
 					<i class="fab fa-fw '. $instagram_icon .' fa-lg"></i>
 				</a>
 			</li>
@@ -149,7 +149,7 @@ function tobias_socials( $args = '' ) {
 
 		$output .= '
 			<li class="list-inline-item">
-				<a class="pe-1" href="'. $tobias_socials['twitter'] .'" aria-label="'. get_bloginfo('name') .' on Twitter">
+				<a class="me-1" href="'. $tobias_socials['twitter'] .'" aria-label="'. get_bloginfo('name') .' on Twitter">
 					<i class="fab fa-fw '. $twitter_icon .' fa-lg"></i>
 				</a>
 			</li>
@@ -166,7 +166,7 @@ function tobias_socials( $args = '' ) {
 
 		$output .= '
 			<li class="list-inline-item">
-				<a class="pe-1" href="'. $tobias_socials['linkedin'] .'" aria-label="'. get_bloginfo('name') .' on LinkedIn">
+				<a class="me-1" href="'. $tobias_socials['linkedin'] .'" aria-label="'. get_bloginfo('name') .' on LinkedIn">
 					<i class="fab fa-fw '. $linkedin_icon .' fa-lg"></i>
 				</a>
 			</li>
@@ -183,7 +183,7 @@ function tobias_socials( $args = '' ) {
 
 		$output .= '
 			<li class="list-inline-item">
-				<a class="pe-1" href="'. $tobias_socials['youtube'] .'" aria-label="'. get_bloginfo('name') .' on YouTube">
+				<a class="me-1" href="'. $tobias_socials['youtube'] .'" aria-label="'. get_bloginfo('name') .' on YouTube">
 					<i class="fab fa-fw '. $linkedin_icon .' fa-lg"></i>
 				</a>
 			</li>
@@ -200,7 +200,7 @@ function tobias_socials( $args = '' ) {
 
 		$output .= '
 			<li class="list-inline-item">
-				<a class="pe-1" href="'. $tobias_socials['pinterest'] .'" aria-label="'. get_bloginfo('name') .' on Pinterest">
+				<a class="me-1" href="'. $tobias_socials['pinterest'] .'" aria-label="'. get_bloginfo('name') .' on Pinterest">
 					<i class="fab fa-fw '. $pinterest_icon .' fa-lg"></i>
 				</a>
 			</li>
@@ -217,7 +217,7 @@ function tobias_socials( $args = '' ) {
 
 		$output .= '
 			<li class="list-inline-item">
-				<a class="pe-1" href="'. $tobias_socials['github'] .'" aria-label="'. get_bloginfo('name') .' on Github">
+				<a class="me-1" href="'. $tobias_socials['github'] .'" aria-label="'. get_bloginfo('name') .' on Github">
 					<i class="fab fa-fw '. $github_icon .' fa-lg"></i>
 				</a>
 			</li>
