@@ -5,11 +5,16 @@
  * 
  */
 
-document.querySelectorAll('.list-group-dropdown-icon').forEach(item => {
-    item.addEventListener('click', event => {
-      item.querySelectorAll('i').forEach(icon => {
-          icon.classList.toggle('fa-chevron-right');
-          icon.classList.toggle('fa-chevron-down');
-      });
-    });
-});
+(function() {
+    'use strict';
+	window.addEventListener('load', function() {
+		document.querySelectorAll('.list-group-dropdown-icon').forEach(item => {
+			item.addEventListener('click', event => {
+				item.querySelectorAll('i').forEach(icon => {
+					icon.classList.toggle('fa-chevron-right');
+					icon.classList.toggle('fa-chevron-down');
+				});
+			});
+		});
+	}, false);
+})();
