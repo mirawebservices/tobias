@@ -234,6 +234,91 @@ if ( ! function_exists( 'tobias_posts_order' ) ) {
 add_action( 'pre_get_posts', 'tobias_posts_order' );
 
 /**
+ * Add scripts and JS to site's <head>
+ */
+if ( ! function_exists( 'tobias_scripts_head' ) ) {
+
+	function tobias_scripts_head( $args = '' ) {
+
+		$tobias_scripts = get_option( 'tobias_scripts' );
+		$scripts_head = $tobias_scripts['scripts_head'];
+		$gtm_id = $tobias_scripts['gtm'];
+
+		if ( ! empty ( $gtm_id ) ) {
+			echo PHP_EOL . "<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','". $gtm_id ."');</script>
+<!-- End Google Tag Manager -->" . PHP_EOL;
+		}
+
+		// Add line break to deliniate GTM from WordPress scripts
+		if ( ! empty ( $gtm_id ) && empty( $scripts_head ) ) {
+			echo PHP_EOL;
+		}
+
+		if ( ! empty( $scripts_head ) ) {
+			echo PHP_EOL . $scripts_head . PHP_EOL . PHP_EOL;
+		}
+		
+	}
+
+}
+add_action('wp_head', 'tobias_scripts_head');
+
+/**
+ * Add scripts and JS after site's opening <body> tag
+ */
+if ( ! function_exists( 'tobias_scripts_body' ) ) {
+
+	function tobias_scripts_body( $args = '' ) {
+
+		$tobias_scripts = get_option( 'tobias_scripts' );
+		$scripts_body = $tobias_scripts['scripts_body'];
+		$gtm_id = $tobias_scripts['gtm'];
+
+		// Add extra line break to delinate from WordPress generated items
+		if ( ! empty ( $gtm_id ) || ! empty ( $scripts_body ) ) {
+			echo PHP_EOL;
+		}
+
+		if ( ! empty ( $gtm_id ) ) {
+			echo PHP_EOL . '<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id='. $gtm_id .'" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->' . PHP_EOL;
+		}
+
+		if ( ! empty( $scripts_body ) ) {
+			echo PHP_EOL . $scripts_body . PHP_EOL;
+		}
+
+	}
+
+}
+add_action('wp_body_open', 'tobias_scripts_body');
+
+/**
+ * Add scripts and JS before site's closing <body> tag
+ */
+if ( ! function_exists( 'tobias_scripts_footer' ) ) {
+
+	function tobias_scripts_footer( $args = '' ) {
+
+		$tobias_scripts = get_option( 'tobias_scripts' );
+		$scripts_footer = $tobias_scripts['scripts_footer'];
+
+		if ( ! empty( $scripts_footer ) ) {
+			echo PHP_EOL . $scripts_footer . PHP_EOL;
+		}
+
+	}
+
+}
+add_action('wp_footer', 'tobias_scripts_footer');
+
+/**
  * Display social media links
  */
 if ( ! function_exists( 'tobias_socials' ) ) {
