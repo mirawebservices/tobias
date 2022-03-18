@@ -44,14 +44,19 @@
  * 
  */
 
-document.querySelectorAll('.list-group-dropdown-icon').forEach(item => {
-    item.addEventListener('click', event => {
-      item.querySelectorAll('i').forEach(icon => {
-          icon.classList.toggle('fa-chevron-right');
-          icon.classList.toggle('fa-chevron-down');
-      });
-    });
-});/**
+(function() {
+    'use strict';
+	window.addEventListener('load', function() {
+		document.querySelectorAll('.list-group-dropdown-icon').forEach(item => {
+			item.addEventListener('click', event => {
+				item.querySelectorAll('i').forEach(icon => {
+					icon.classList.toggle('fa-chevron-right');
+					icon.classList.toggle('fa-chevron-down');
+				});
+			});
+		});
+	}, false);
+})();/**
  * File navbar.js.
  *
  * Modifications to default navbar functionality
@@ -59,28 +64,24 @@ document.querySelectorAll('.list-group-dropdown-icon').forEach(item => {
  * 
  */
 
-const $dropdown = $(".dropdown");
-const $dropdownToggle = $(".dropdown-toggle");
-const $dropdownMenu = $(".dropdown-menu");
-const showClass = "show";
- 
-$(window).on("load resize", function() {
-	if (this.matchMedia("(min-width: 768px)").matches) {
-		$dropdown.hover(
-			function() {
-		 		const $this = $(this);
-		 		$this.addClass(showClass);
-		 		$this.find($dropdownToggle).attr("aria-expanded", "true");
-		 		$this.find($dropdownMenu).addClass(showClass);
-	   		},
-	   		function() {
-		 		const $this = $(this);
-		 		$this.removeClass(showClass);
-		 		$this.find($dropdownToggle).attr("aria-expanded", "false");
-		 		$this.find($dropdownMenu).removeClass(showClass);
-	   		}
-	 	);
-   	} else {
-		$dropdown.off("mouseenter mouseleave");
-   	}
-});
+const dropdowns = document.querySelectorAll('.dropdown');
+
+(function() {
+	'use strict';
+	window.addEventListener('load', function() {
+		for (const dropdown of dropdowns) {
+			dropdown.addEventListener('mouseenter', function() {
+				//alert('here');
+				dropdown.classList.add('show');
+				dropdown.querySelector('.dropdown-toggle').setAttribute('aria-expanded', 'true');
+				dropdown.querySelector('.dropdown-menu').classList.add('show');
+			});
+			dropdown.addEventListener('mouseleave', function() {
+				//alert('here2');
+				dropdown.classList.remove('show');
+				dropdown.querySelector('.dropdown-toggle').setAttribute('aria-expanded', 'false');
+				dropdown.querySelector('.dropdown-menu').classList.remove('show');
+			});
+		}
+	}, false);
+})();

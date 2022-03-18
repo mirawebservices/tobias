@@ -113,9 +113,9 @@ if ( ! function_exists( 'tobias_images_customizer' ) ) {
         );
         
     }
-    add_action( 'customize_register', 'tobias_images_customizer' );
 
 }
+add_action( 'customize_register', 'tobias_images_customizer' );
 
 /**
  * Add Customizer options for the "Tobias Socials"
@@ -293,9 +293,9 @@ if ( ! function_exists( 'tobias_socials_customizer' ) ) {
         );
 
     }
-    add_action( 'customize_register', 'tobias_socials_customizer' );
 
 }
+add_action( 'customize_register', 'tobias_socials_customizer' );
 
 /**
  * Add Customizer options for the "Tobias Options"
@@ -401,6 +401,119 @@ if ( ! function_exists( 'tobias_options_customizer' ) ) {
         );
 
     }
-    add_action( 'customize_register', 'tobias_options_customizer' );
 
 }
+add_action( 'customize_register', 'tobias_options_customizer' );
+
+/**
+ * Add Customizer options for the "Tobias Scripts"
+ * 
+ * @link https://developer.wordpress.org/reference/hooks/customize_register/
+ */
+if ( ! function_exists( 'tobias_scripts_customizer' ) ) {
+
+    function tobias_scripts_customizer( $wp_customize ){
+        
+        // Add Tobias Scripts section
+        $wp_customize->add_section(
+            'tobias_scripts',
+            array(
+                'title'			=> __('Tobias Scripts', 'tobias'),
+                'description'	=> 'Various JavaScript tags and includes to be used with the theme.',
+                'priority'		=> 10,
+            )
+        );
+
+        // Google Tag Manager ID
+        $wp_customize->add_setting(
+            'tobias_scripts[gtm]',
+            array(
+                'default'        => '',
+                'sanitize_callback' => 'sanitize_text_field',
+                'capability'     => 'edit_theme_options',
+                'type'           => 'option',
+            )
+        );
+        $wp_customize->add_control(
+            'gtm',
+            array(
+                'label'      => __('Google Tag Manager ID', 'tobias'),
+                'description' => 'The ID of a Google Tag Manager container',
+                'section'    => 'tobias_scripts',
+                'settings'   => 'tobias_scripts[gtm]',
+            )
+        );
+
+        // Scripts (head)
+        $wp_customize->add_setting(
+            'tobias_scripts[scripts_head]',
+            array(
+                'default'        => '',
+                'capability'     => 'edit_theme_options',
+                'type'           => 'option',
+            )
+        );
+        $wp_customize->add_control(
+            new WP_Customize_Code_Editor_Control(
+                $wp_customize,
+                'scripts_head',
+                array(
+                    'label'     => 'Scripts (Head)',
+                    'description' => 'Any custom JS or script tags to include in the site\'s &#60;head&#62; tag. Must include opening and closing &#60;script&#62;&#60;/script&#62; tags.',
+                    'code_type' => 'htmlmixed',
+                    'settings'  => 'tobias_scripts[scripts_head]',
+                    'section'   => 'tobias_scripts',
+                )
+            )
+        );
+
+        // Scripts (body)
+        $wp_customize->add_setting(
+            'tobias_scripts[scripts_body]',
+            array(
+                'default'        => '',
+                'capability'     => 'edit_theme_options',
+                'type'           => 'option',
+            )
+        );
+        $wp_customize->add_control(
+            new WP_Customize_Code_Editor_Control(
+                $wp_customize,
+                'scripts_body',
+                array(
+                    'label'     => 'Scripts (Body)',
+                    'description' => 'Any custom JS or script tags to include immediately after the site\'s &#60;body&#62; tag. Must include opening and closing &#60;script&#62;&#60;/script&#62; tags.',
+                    'code_type' => 'htmlmixed',
+                    'settings'  => 'tobias_scripts[scripts_body]',
+                    'section'   => 'tobias_scripts',
+                )
+            )
+        );
+
+        // Scripts (footer)
+        $wp_customize->add_setting(
+            'tobias_scripts[scripts_footer]',
+            array(
+                'default'        => '',
+                'capability'     => 'edit_theme_options',
+                'type'           => 'option',
+            )
+        );
+        $wp_customize->add_control(
+            new WP_Customize_Code_Editor_Control(
+                $wp_customize,
+                'scripts_footer',
+                array(
+                    'label'     => 'Scripts (Footer)',
+                    'description' => 'Any custom JS or script tags to before the site\'s closing &#60;/body&#62; tag. Must include opening and closing &#60;script&#62;&#60;/script&#62; tags.',
+                    'code_type' => 'htmlmixed',
+                    'settings'  => 'tobias_scripts[scripts_footer]',
+                    'section'   => 'tobias_scripts',
+                )
+            )
+        );
+
+    }
+
+}
+add_action( 'customize_register', 'tobias_scripts_customizer' );

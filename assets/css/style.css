@@ -20843,22 +20843,10 @@ article.sticky {
 
 .title {
   background-color: #e9ecef;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  hyphens: auto;
-  word-break: break-word;
-  word-wrap: break-word;
 }
 
 .entry-title {
   margin-top: 0;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  hyphens: auto;
-  word-break: break-word;
-  word-wrap: break-word;
 }
 
 /*# sourceMappingURL=style.css.map */
