@@ -188,6 +188,16 @@ function tobias_scripts() {
 add_action( 'wp_enqueue_scripts', 'tobias_scripts' );
 
 /**
+ * Enqueue scripts and styles for WordPress block editor
+ */
+function tobias_block_editor_assets() {
+	wp_enqueue_style( 'tobias-style', get_template_directory_uri() . '/assets/css/style.min.css', array(), _S_VERSION );
+	wp_enqueue_style( 'tobias-admin-style', get_template_directory_uri() . '/assets/css/admin.min.css', array(), _S_VERSION );
+    wp_enqueue_script( 'tobias-js', get_template_directory_uri() . '/assets/js/web.min.js', array(), _S_VERSION, true );
+}
+add_action( 'enqueue_block_editor_assets', 'tobias_block_editor_assets' );
+
+/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';

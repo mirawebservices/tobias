@@ -1,0 +1,41 @@
+/*--------------------------------------------------------------
+# CSS to be loaded within the WordPress Block Editor
+# Used to style meta boxes
+# Also used to prevent conflicts between Bootstrap and WordPress Blocks
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Mimic container width
+--------------------------------------------------------------*/
+html :where(.wp-block) {
+  max-width: 1400px;
+  padding: 0 15px;
+}
+
+.card {
+  padding: inherit;
+  margin: inherit;
+  max-width: inherit;
+}
+
+/*--------------------------------------------------------------
+# Modify "page-container" meta box to better look like native component panel
+--------------------------------------------------------------*/
+.block-editor #page-container .postbox-header h2 {
+  padding: 16px 48px 16px 16px !important;
+  font-size: 13px;
+}
+
+.block-editor #page-container .postbox-header .handle-order-higher,
+.block-editor #page-container .postbox-header .handle-order-lower {
+  display: none;
+}
+
+.block-editor #page-container .postbox-header .handlediv {
+  margin-right: 7px;
+}
+
+.block-editor #page-container .inside {
+  padding: 0 48px 0 16px;
+}
+
+/*# sourceMappingURL=admin.css.map */
