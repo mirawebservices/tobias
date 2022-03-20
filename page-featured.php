@@ -18,24 +18,20 @@ get_header();
 
 	<?php get_template_part( 'template-parts/breadcrumb', '' ); ?>
 
-	<div class="<?php tobias_page_container(); ?> my-3">
-		<div class="row">
-			<div id="primary" class="col-12">
+	<div id="primary" class="<?php tobias_page_container(); ?> my-3">
 
-				<?php
-					while ( have_posts() ) :
-						the_post();
+		<?php
+			while ( have_posts() ) :
+				the_post();
 
-						get_template_part( 'template-parts/content', 'page' );
+				get_template_part( 'template-parts/content', 'page' );
 
-						if ( comments_open() || get_comments_number() ) :
-							comments_template();
-						endif;
-					endwhile;
-				?>
-				
-			</div>
-		</div>
+				if ( comments_open() || get_comments_number() ) :
+					comments_template();
+				endif;
+			endwhile;
+		?>
+
 	</div>
 </main>
 
