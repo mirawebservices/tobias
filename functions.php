@@ -198,6 +198,11 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/template-functions.php';
 
 /**
+ * Register meta boxes
+ */
+require get_template_directory() . '/inc/template-meta-boxes.php';
+
+/**
  * Custom pagination for the theme
  */
 require get_template_directory() . '/inc/template-pagination.php';
