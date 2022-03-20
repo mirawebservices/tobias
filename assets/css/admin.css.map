@@ -1,0 +1,18 @@
+{
+	"version": 3,
+	"file": "admin.css",
+	"sources": [
+		"../../sass/admin/admin.scss",
+		"../../sass/admin/_html.scss",
+		"../../sass/admin/_cards.scss",
+		"../../sass/admin/_page-container.scss"
+	],
+	"sourcesContent": [
+		"/*--------------------------------------------------------------\r\n# CSS to be loaded within the WordPress Block Editor\r\n# Used to style meta boxes\r\n# Also used to prevent conflicts between Bootstrap and WordPress Blocks\r\n--------------------------------------------------------------*/\r\n\r\n@import \"html\";\r\n@import \"cards\";\r\n@import \"page-container\";",
+		"/*--------------------------------------------------------------\r\n# Mimic container width\r\n--------------------------------------------------------------*/\r\nhtml {\r\n    :where(.wp-block) {\r\n        max-width: 1400px;\r\n        padding: 0 15px;\r\n    }\r\n}",
+		".card {\r\n    padding: inherit;\r\n    margin: inherit;\r\n    max-width: inherit;\r\n}",
+		"/*--------------------------------------------------------------\r\n# Modify \"page-container\" meta box to better look like native component panel\r\n--------------------------------------------------------------*/\r\n.block-editor {\r\n    #page-container {\r\n        .postbox-header {\r\n            h2 {\r\n                padding: 16px 48px 16px 16px!important;\r\n                font-size: 13px;\r\n            }\r\n            .handle-order-higher,\r\n            .handle-order-lower {\r\n                display: none;\r\n            }\r\n            .handlediv {\r\n                margin-right: 7px;\r\n            }\r\n        }\r\n        .inside {\r\n            padding: 0 48px 0 16px;\r\n        }\r\n    }\r\n}"
+	],
+	"names": [],
+	"mappings": "AAAA;;;;gEAIgE;ACJhE;;gEAEgE;AAChE,AACI,IADA,CACA,MAAO,CAAA,SAAS,EAAE;EACd,SAAS,EAAE,MAAM;EACjB,OAAO,EAAE,MAAM;CAClB;;ACPL,AAAA,KAAK,CAAC;EACF,OAAO,EAAE,OAAO;EAChB,MAAM,EAAE,OAAO;EACf,SAAS,EAAE,OAAO;CACrB;;ACJD;;gEAEgE;AAChE,AAGY,aAHC,CACT,eAAe,CACX,eAAe,CACX,EAAE,CAAC;EACC,OAAO,EAAE,IAAI,CAAC,IAAI,CAAC,IAAI,CAAC,IAAI,CAAA,UAAU;EACtC,SAAS,EAAE,IAAI;CAClB;;AANb,AAOY,aAPC,CACT,eAAe,CACX,eAAe,CAKX,oBAAoB;AAPhC,aAAa,CACT,eAAe,CACX,eAAe,CAMX,mBAAmB,CAAC;EAChB,OAAO,EAAE,IAAI;CAChB;;AAVb,AAWY,aAXC,CACT,eAAe,CACX,eAAe,CASX,UAAU,CAAC;EACP,YAAY,EAAE,GAAG;CACpB;;AAbb,AAeQ,aAfK,CACT,eAAe,CAcX,OAAO,CAAC;EACJ,OAAO,EAAE,aAAa;CACzB"
+}

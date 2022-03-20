@@ -1,0 +1,23 @@
+/*--------------------------------------------------------------
+# Modify "page-container" meta box to better look like native component panel
+--------------------------------------------------------------*/
+.block-editor {
+    #page-container {
+        .postbox-header {
+            h2 {
+                padding: 16px 48px 16px 16px!important;
+                font-size: 13px;
+            }
+            .handle-order-higher,
+            .handle-order-lower {
+                display: none;
+            }
+            .handlediv {
+                margin-right: 7px;
+            }
+        }
+        .inside {
+            padding: 0 48px 0 16px;
+        }
+    }
+}

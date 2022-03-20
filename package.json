@@ -1,6 +1,6 @@
 {
 	"name": "tobias",
-	"version": "0.4.0",
+	"version": "0.4.1",
 	"description": "",
 	"dependencies": {
 		"@fortawesome/fontawesome-free": "^6.0.0",
@@ -22,6 +22,9 @@
 		"css": "npm-run-all css-compile css-minify",
 		"css-compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 sass/style.scss assets/css/style.css",
 		"css-minify": "cleancss --level 1 --source-map --source-map-inline-sources --output assets/css/style.min.css assets/css/style.css",
+		"css-admin": "npm-run-all css-admin-compile css-admin-minify",
+		"css-admin-compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 sass/admin/admin.scss assets/css/admin.css",
+		"css-admin-minify": "cleancss --level 1 --source-map --source-map-inline-sources --output assets/css/admin.min.css assets/css/admin.css",
 		"js": "npm-run-all js-compile js-minify js-move-assets",
 		"js-compile": "shx cat node_modules/jquery/dist/jquery.min.js node_modules/bootstrap/dist/js/bootstrap.bundle.min.js js/nl.js js/form-validation.js js/mobile-menu.js js/navbar.js > assets/js/web.js",
 		"js-move-assets": "shx cp -Rf node_modules/@fortawesome/fontawesome-free/webfonts assets",

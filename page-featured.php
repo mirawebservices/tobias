@@ -18,7 +18,7 @@ get_header();
 
 	<?php get_template_part( 'template-parts/breadcrumb', '' ); ?>
 
-	<div class="container my-3">
+	<div class="<?php tobias_page_container(); ?> my-3">
 		<div class="row">
 			<div id="primary" class="col-12">
 

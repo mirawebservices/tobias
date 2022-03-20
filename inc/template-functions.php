@@ -182,6 +182,27 @@ if ( ! function_exists( 'tobias_menu_link_class' ) ) {
 add_filter( 'nav_menu_link_attributes', 'tobias_menu_link_class', 1, 3 );
 
 /**
+ * Change default page/content container class based on post meta
+ */
+if ( ! function_exists( 'tobias_page_container' ) ) {
+
+	function tobias_page_container() {
+
+		global $post;
+
+		$page_container = get_post_meta( $post->ID, '_tobias_page_container', true );
+
+		if ( ! empty ( $page_container ) ) {
+			echo $page_container;
+		} else {
+			echo 'container';
+		}
+
+	}
+
+}
+
+/**
  * Add support for excerpts on pages
  */
 if ( ! function_exists( 'tobias_page_excerpt' ) ) {
