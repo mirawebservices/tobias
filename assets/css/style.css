@@ -20740,15 +20740,30 @@ img {
   margin: 0 0 0 1rem;
 }
 
+.navbar .nav-link.dropdown-icon {
+  padding: 0 0;
+  margin-right: 0.5rem;
+}
+
 .navbar .dropdown-menu li {
   position: relative;
 }
 
-.navbar .dropdown-menu li:hover {
+.navbar .dropdown-menu li .dropdown-item.dropdown-link {
+  width: 83%;
+  padding-right: 0;
+}
+
+.navbar .dropdown-menu li .dropdown-item.dropdown-icon {
+  width: 10%;
+  padding-left: 0;
+}
+
+.navbar .dropdown-menu li.show {
   background-color: #e9ecef;
 }
 
-.navbar .dropdown-menu li:hover .submenu {
+.navbar .dropdown-menu li.show .submenu {
   display: block;
 }
 

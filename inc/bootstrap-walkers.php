@@ -101,15 +101,19 @@ class Bootstrap_5_Walker_Nav_menu extends Walker_Nav_menu {
 		$active_class = ( $item->current || $item->current_item_ancestor || in_array( "current_page_parent", $item->classes, true ) || in_array( "current-post-ancestor", $item->classes, true ) ) ? 'active' : '';
 		$nav_link_class = ( $depth > 0 ) ? 'dropdown-item ' : 'nav-link ';
 
-		// (Optional) Prevent dropdown links from being clickable
-		// (Default) Make dropdown links clickable as links
-		//$attributes .= ( $args->walker->has_children ) ? ' class="'. $nav_link_class . $active_class . ' dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"' : ' class="'. $nav_link_class . $active_class . '"';
-		$attributes .= ( $args->walker->has_children ) ? ' class="'. $nav_link_class . $active_class . ' dropdown-toggle" aria-haspopup="true" aria-expanded="false"' : ' class="'. $nav_link_class . $active_class . '"';
+		// (Default) Make parent dropdown links clickable as links
+		$attributes .= ( $args->walker->has_children ) ? ' class="'. $nav_link_class . $active_class . ' dropdown-toggle dropdown-link d-inline-block" aria-haspopup="true" aria-expanded="false"' : ' class="'. $nav_link_class . $active_class . '"';
+		// (Optional) Prevent parent dropdown links from being clickable
+		// $attributes .= ( $args->walker->has_children ) ? ' class="'. $nav_link_class . $active_class . ' dropdown-toggle dropdown-link d-inline-block" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"' : ' class="'. $nav_link_class . $active_class . '"';
 
 		$item_output = $args->before;
 		$item_output .= '<a' . $attributes . '>';
 		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
 		$item_output .= '</a>';
+
+		// Recreate the toggle chevron/caret so that it is a tabbable element
+		$item_output .= ( $args->walker->has_children ) ? '<a href="#" class="'. $nav_link_class . $active_class . ' dropdown-toggle dropdown-icon d-inline-block" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Dropdown Toggle"><i class="fa-solid fa-chevron-down"></i></a>' : '';
+
 		$item_output .= $args->after;
 
 		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );

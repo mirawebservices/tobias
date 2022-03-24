@@ -16,7 +16,7 @@ if ( ! function_exists( 'tobias_posts_pagination' ) ) {
             'custom_query'    => false,
             'previous_string' => __( 'Prev', 'tobias' ),
             'next_string'     => __( 'Next', 'tobias' ),
-            'before_output'   => '<nav class="mt-5" aria-label="Posts Navigation"><ul class="pagination justify-content-center">',
+            'before_output'   => '<nav class="mt-4" aria-label="Posts Navigation"><ul class="pagination justify-content-center mb-2">',
             'after_output'    => '</ul></nav>'
         );
         
