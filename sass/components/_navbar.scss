@@ -1,8 +1,24 @@
 .navbar {
+	.nav-link {
+		&.dropdown-icon {
+			padding: 0 0;
+			margin-right: 0.5rem;
+		}
+	}
 	.dropdown-menu {
 		li { 
 			position: relative;
-			&:hover {
+			.dropdown-item {
+				&.dropdown-link {
+					width: 83%;
+					padding-right: 0;
+				}
+				&.dropdown-icon {
+					width: 10%;
+					padding-left: 0;
+				}
+			}
+			&.show {
 				background-color: $gray-200;
 				.submenu {
 					display: block;
