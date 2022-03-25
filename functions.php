@@ -256,6 +256,7 @@ remove_action('wp_head', 'rsd_link');
 remove_action('wp_head', 'feed_links_extra', 3);
 remove_action('wp_head', 'rest_output_link_wp_head', 10);
 remove_action('wp_head', 'wp_oembed_add_discovery_links', 10);
+remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
 add_filter('feed_links_show_comments_feed', '__return_false');
 
 /**
