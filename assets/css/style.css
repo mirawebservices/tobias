@@ -20743,6 +20743,13 @@ img {
 .navbar .nav-link.dropdown-icon {
   padding: 0 0;
   margin-right: 0.5rem;
+  margin-left: -0.25rem;
+}
+
+.navbar .nav-link.dropdown-icon i {
+  font-size: .625em;
+  line-height: .1em;
+  vertical-align: 0.225em;
 }
 
 .navbar .dropdown-menu li {
@@ -20756,7 +20763,13 @@ img {
 
 .navbar .dropdown-menu li .dropdown-item.dropdown-icon {
   width: 10%;
-  padding-left: 0;
+  padding-left: 4%;
+}
+
+.navbar .dropdown-menu li .dropdown-item.dropdown-icon i {
+  font-size: .625em;
+  line-height: .1em;
+  vertical-align: 0.225em;
 }
 
 .navbar .dropdown-menu li.show {

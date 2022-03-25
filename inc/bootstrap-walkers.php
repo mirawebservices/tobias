@@ -112,7 +112,7 @@ class Bootstrap_5_Walker_Nav_menu extends Walker_Nav_menu {
 		$item_output .= '</a>';
 
 		// Recreate the toggle chevron/caret so that it is a tabbable element
-		$item_output .= ( $args->walker->has_children ) ? '<a href="#" class="'. $nav_link_class . $active_class . ' dropdown-toggle dropdown-icon d-inline-block" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Dropdown Toggle"><i class="fa-solid fa-chevron-down"></i></a>' : '';
+		$item_output .= ( $args->walker->has_children ) ? '<a href="#" class="'. $nav_link_class . $active_class . ' dropdown-toggle dropdown-icon d-inline-block" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="'. apply_filters( 'the_title', $item->title, $item->ID ) . ' Dropdown Toggle"><i class="fa-solid fa-chevron-down"></i></a>' : '';
 
 		$item_output .= $args->after;
 
