@@ -3,6 +3,12 @@
 		&.dropdown-icon {
 			padding: 0 0;
 			margin-right: 0.5rem;
+			margin-left: -0.25rem;
+			i {
+				font-size: .625em;
+				line-height: .1em;
+				vertical-align: 0.225em;
+			}
 		}
 	}
 	.dropdown-menu {
@@ -15,7 +21,12 @@
 				}
 				&.dropdown-icon {
 					width: 10%;
-					padding-left: 0;
+					padding-left: 4%;
+					i {
+						font-size: .625em;
+						line-height: .1em;
+						vertical-align: 0.225em;
+					}
 				}
 			}
 			&.show {

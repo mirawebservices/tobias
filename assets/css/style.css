@@ -34,7 +34,6 @@
 	- Entry Description
 	- Sticky Post
 	- Page Title
-
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Variables & Mixins
@@ -20445,10 +20444,6 @@ hr {
 --------------------------------------------------------------*/
 /* =WordPress Core
 -------------------------------------------------------------- */
-.alignnone {
-  margin: 15px 30px 30px 0;
-}
-
 .aligncenter,
 div.aligncenter {
   display: block;
@@ -20468,10 +20463,6 @@ div.aligncenter {
 a img.alignright {
   float: right;
   margin: 5px 0 30px 30px;
-}
-
-a img.alignnone {
-  margin: 5px 30px 30px 0;
 }
 
 a img.alignleft {
@@ -20743,6 +20734,13 @@ img {
 .navbar .nav-link.dropdown-icon {
   padding: 0 0;
   margin-right: 0.5rem;
+  margin-left: -0.25rem;
+}
+
+.navbar .nav-link.dropdown-icon i {
+  font-size: .625em;
+  line-height: .1em;
+  vertical-align: 0.225em;
 }
 
 .navbar .dropdown-menu li {
@@ -20756,7 +20754,13 @@ img {
 
 .navbar .dropdown-menu li .dropdown-item.dropdown-icon {
   width: 10%;
-  padding-left: 0;
+  padding-left: 4%;
+}
+
+.navbar .dropdown-menu li .dropdown-item.dropdown-icon i {
+  font-size: .625em;
+  line-height: .1em;
+  vertical-align: 0.225em;
 }
 
 .navbar .dropdown-menu li.show {
