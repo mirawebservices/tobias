@@ -20445,10 +20445,6 @@ hr {
 --------------------------------------------------------------*/
 /* =WordPress Core
 -------------------------------------------------------------- */
-.alignnone {
-  margin: 15px 30px 30px 0;
-}
-
 .aligncenter,
 div.aligncenter {
   display: block;
@@ -20468,10 +20464,6 @@ div.aligncenter {
 a img.alignright {
   float: right;
   margin: 5px 0 30px 30px;
-}
-
-a img.alignnone {
-  margin: 5px 30px 30px 0;
 }
 
 a img.alignleft {
